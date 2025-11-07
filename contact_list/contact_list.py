@@ -1,18 +1,10 @@
-"""The module defines the ContactList class."""
-
 __author__ = "ACE Faculty"
 __version__ = "1.0.0"
 __credits__ = ""
 
 from PySide6.QtWidgets import (
-    QMainWindow,
-    QLineEdit,
-    QPushButton,
-    QTableWidget,
-    QLabel,
-    QVBoxLayout,
-    QWidget,
-    QTableWidgetItem,
+    QMainWindow, QLineEdit, QPushButton, QTableWidget,
+    QLabel, QVBoxLayout, QWidget, QTableWidgetItem, QMessageBox
 )
 
 
@@ -23,7 +15,7 @@ class ContactList(QMainWindow):
         """Initializes a new instance of the ContactList class."""
         super().__init__()
         self.__initialize_widgets()
-        self.__wire_events()  # connect buttons to our methods
+        self.__wire_events()  # connect buttons to handlers
 
     def __initialize_widgets(self):
         """Initializes the widgets on this Window.

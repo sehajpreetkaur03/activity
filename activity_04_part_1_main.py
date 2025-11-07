@@ -1,4 +1,4 @@
-"""A client program written to verify correctness of the activity 
+"""A client program written to verify correctness of the activity
 classes.
 """
 

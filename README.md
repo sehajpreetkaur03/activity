@@ -9,8 +9,10 @@ This activity will help to reinforce learning of the Module 4 concepts of:
 
 ## Author
 
-[Your name]
+[sehajpreet kaur]
 
 ## Additional Information
 
-[ Use this space to include additional information that may help in your learning. ]
+My project is a Contact List app made in Python using PySide6.
+It allows the user to add and remove contacts and shows messages after each action.
+This activity helped me understand event handling, signals, and slots in PySide6.

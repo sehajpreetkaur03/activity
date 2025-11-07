@@ -59,8 +59,6 @@ class ContactList(QMainWindow):
         container.setLayout(layout)
         self.setCentralWidget(container)
 
-    # ---------- YOUR CODE BELOW THIS LINE ---------- #
-
     def __wire_events(self):
         """Connect button clicks to their handlers."""
         self.add_button.clicked.connect(self.add_contact)
@@ -87,13 +85,27 @@ class ContactList(QMainWindow):
         self.status_label.setText(f"Added: {name}")
 
     def remove_contact(self):
-        """Remove the selected contact from the table."""
+        """Remove the selected contact from the table after confirmation."""
         row = self.contact_table.currentRow()
+
         if row == -1:
             self.status_label.setText("Select a contact row to remove.")
             return
 
         name_item = self.contact_table.item(row, 0)
         name = name_item.text() if name_item else "Contact"
-        self.contact_table.removeRow(row)
-        self.status_label.setText(f"Removed: {name}")
+
+        # Ask for confirmation using QMessageBox
+        reply = QMessageBox.question(
+            self,
+            "Remove Contact",
+            f"Are you sure you want to remove {name}?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+
+        if reply == QMessageBox.Yes:
+            self.contact_table.removeRow(row)
+            self.status_label.setText(f"Removed: {name}")
+        else:
+            self.status_label.setText("Removal canceled.")
